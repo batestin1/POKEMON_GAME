@@ -48,11 +48,11 @@ I have a special mission for you.
 But first, tell me what your name is?  bates
 Nice to meet you bates
 I need to study pokemon and for that I would like to give you one of these three pokemons
-#---------------------------------------------------------------------------------------#
-# [1] - Bulbasaur                                                                       #
-# [2] - Charmander                                                                      #
-# [3] - Squirtle                                                                        #
-#---------------------------------------------------------------------------------------#
+---------------------------------------------------------------------------------------#
+ [1] - Bulbasaur                                                                       #
+ [2] - Charmander                                                                      #
+ [3] - Squirtle                                                                        #
+---------------------------------------------------------------------------------------#
 What's your choice? 1
 
 ```
