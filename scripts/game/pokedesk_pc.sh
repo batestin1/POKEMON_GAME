@@ -49,7 +49,7 @@ echo "#=========================================================================
 read -p "" CHOISE
 
 if [ "$CHOISE" -eq 1 ]; then
-    sh scripts/game/chapter_2.sh $NUMBER $NAME_USER
+    sh scripts/game/appear.sh $NUMBER $NAME_USER
 elif [ "$CHOISE" -eq 2 ]; then
     echo
     read -p "Enter a pokedesk number to search (1-151): " NUMBER
