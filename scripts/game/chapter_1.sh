@@ -29,7 +29,7 @@ echo "Great, $NAME_USER"
 sleep 1
 echo "You choose the $NAME_USER_POKE"
 sleep 1
-read -p "Would you like to know what pokedesk says about your pokemon? (/n): " INFO
+read -p "Would you like to know what pokedesk says about your pokemon? (Y/n): " INFO
 
 if [ "$INFO" = Y -o "$INFO" = y -o "$INFO" = "" ]; then
     sh scripts/game/pokedesk_user.sh  $NUMBER $NAME_USER
@@ -39,7 +39,7 @@ else
     echo "#=================================================================================================================#"
     echo "#                                           Invalid option                                                        #"
     echo "#=================================================================================================================#"
-    sleep 1
+
+    sleep 2
     sh scripts/game/end.sh
-    exit 1
 fi
