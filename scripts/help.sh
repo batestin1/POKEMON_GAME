@@ -18,6 +18,7 @@ echo "# This game was designed on top of the original Pokemon Red               
 echo "# Contains only the original 151 pokemons                                                                         #"
 echo "# It works intuitively, where your computer will ask you questions and you will have option to answer             #"
 echo "# To start the game just follow one of the options below                                                          #"
+echo "# You can only save the game after record the pokemon                                                             #"
 echo "# At any time of the game type 'ctrl + c' to exit                                                                 #"
 echo "#=================================================================================================================#"
 echo "#===================================== OPTION  ===================================================================="

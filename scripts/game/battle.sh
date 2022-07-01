@@ -48,7 +48,10 @@ if [ "$OPT" -eq 1 ]; then
         echo "The $POKE_USER It has a attack of... $LEVEL_ATTACK_1"
         sleep 1
         echo "So, the win is..."
+        sleep 1
         echo "$POKE_USER"
+        sleep 2
+        sh scripts/game/record.sh $NUMBER $NAME_USER $NUM
     elif [ "$LEVEL_ATTACK_1" -lt "$LEVEL_DEFENSE_PC" ]; then
         sleep 1
         echo "The $POKE_PC It has a defense of... $LEVEL_DEFENSE_PC"
@@ -80,6 +83,7 @@ elif [ "$OPT" -eq 2 ]; then
         sleep 1
         echo "So, the win is..."
         echo "The $POKE_USER"
+        sh scripts/game/record.sh $NUMBER $NAME_USER $NUM
     else
         sleep 1
         echo "$POKE_PC have the same level as $POKE_USER"
@@ -96,39 +100,35 @@ else
 fi
 
 sleep 1
-read -p "...$NAME_USER, would like to save you this appearance on pokedesk? (Y/n): " OPT_2
-if [ "$OPT_2" = "Y" -o "$OPT_2" = "y" -o "$OPT_2" = "" ]; then
+echo "===================================================="
+sleep 1
+echo "What do you want to do now? "
+echo "[1] - New Battle"
+echo "[2] - On the road"
+echo "[3] - Exit"
+read -p "" OPT_2
+
+if [ "$OPT_2" -eq 1 ]; then
     sleep 1
-    echo "record..."
-    mkdir -p scripts/pokedesk
-    echo "{\"NAME\": \"$POKE_PC\", \"POKEDESK\": \"$NUM\", \"LEVEL\": \"$LEVEL\", \"ATTACK\": \"$LEVEL_ATTACK_1\", \"DEFENSE\": \"$LEVEL_DEFENSE_1\",\"TYPE\": \"$TYPE\", \"ABILITY\": \"$ABILITY\" }" >> scripts/pokedesk/pokedesk.json
+    echo "Let's do so..."
     sleep 1
-    echo "$POKE_PC it's save on POKEDESK"
+    sh scripts/game/battle.sh $NUMBER $NAME_USER $NUM
+elif [ "$OPT_2" -eq 2 ]; then
     sleep 1
-    read -p "I would like to see you? (Y/n): " OPT_3
-    if [ "$OPT_3" = "Y" -o "$OPT_3" = "y" -o "$OPT_3" = "" ]; then
-        sleep 1
-        sh scripts/game/pokedesk_pc.sh $NUMBER $NAME_USER $NUM
-    elif [ "$OPT_3" = "N" -o "$OPT_3" = "n"  ]; then
-        sleep 1
-        echo "OK. Let's keep walking..."
-        sleep 1
-        sh scripts/game/appear.sh $NUMBER $NAME_USER
-    else
-        clear
-        echo "#=================================================================================================================#"
-        echo "#                                           Invalid option                                                        #"
-        echo "#=================================================================================================================#"
-        exit 1
-        sh scripts/game/end.sh
-    fi
-elif [ "$OPT_2" = "N" -o "$OPT_2" = "n" ]; then
-    sleep 1
-    echo "OK. Pokemon not saved!"
-    sleep 1
-    echo "Let's keep walking..."
+    echo "Back on the road..."
     sleep 1
     sh scripts/game/appear.sh $NUMBER $NAME_USER
+elif [ "$OPT_2" -eq 3]; then
+    clear
+    sleep 1
+    echo "################################################################################################################################################"
+    sleep 1
+    echo "... I thought you could do it.I'm sorry, $NAME_USER, but you're not the one I'm looking for!"
+    sleep 1
+    echo "bye... bye!"
+    sleep 1
+    echo "################################################################################################################################################"
+    sh scripts/game/end.sh
 else
     clear
     echo "#=================================================================================================================#"

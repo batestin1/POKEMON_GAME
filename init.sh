@@ -27,7 +27,7 @@ echo "  ##      ### ###   ## ##    ##   #  ##   ##  ### ###  ##  ###           #
 sleep 1
 echo " ####      #####   ### ###  #######  ### ###   #####   ##   ##           ##   ##   #####   #### ##  #######  ##### ";
 sleep 0.1
-echo "==================================================== PRESS ENTER ===================================================="
+echo  "==================================================== PRESS ENTER ===================================================="
 read -p "" OPT
 
 if [ "$OPT" = "B" -o "$OPT" = "b" -o "$OPT" = "" ]; then
@@ -36,17 +36,20 @@ if [ "$OPT" = "B" -o "$OPT" = "b" -o "$OPT" = "" ]; then
     echo "#======================================= Choose an option ========================================================="
     echo "#                                                                                                                 #"
     echo "# [1] - Start The Game                                                                                            #"
-    echo "# [2] - Help                                                                                                      #"
-    echo "# [3] - Exit                                                                                                      #"
-    echo "# [4] - About                                                                                                     #"
+    echo "# [2] - Continue Old Game                                                                                         #"
+    echo "# [3] - Help                                                                                                      #"
+    echo "# [4] - Exit                                                                                                      #"
+    echo "# [5] - About                                                                                                     #"
     echo "#                                                                                                                 #"
     echo "#=================================================================================================================#"
     read -p "" CHOISE
     if [ "$CHOISE" -eq 1 ]; then
         sh  scripts/game/game.sh
     elif [ "$CHOISE" -eq 2 ]; then
-        sh scripts/help.sh
+        sh scripts/continue.sh
     elif [ "$CHOISE" -eq 3 ]; then
+        sh scripts/help.sh
+    elif [ "$CHOISE" -eq 4 ]; then
         clear
         echo "#=================================================================================================================#"
         echo "#                                           By By                                                                 #"
@@ -54,7 +57,7 @@ if [ "$OPT" = "B" -o "$OPT" = "b" -o "$OPT" = "" ]; then
         sleep 1
         sh scripts/game/end.sh
         exit 1
-    elif [ "$CHOISE" -eq 4 ]; then
+    elif [ "$CHOISE" -eq 5 ]; then
         sh scripts/about.sh
     else
         clear
