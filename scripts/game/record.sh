@@ -18,11 +18,11 @@ NAME_USER=$2
 NUMBER=$1
 NAME_USER_POKE=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq ' .forms | .[] | .name ' | sed 's/\"//g' | tr a-z A-Z)
 POKE_USER=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq ' .forms | .[] | .name ' | sed 's/\"//g' | tr a-z A-Z)
-LEVEL=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq '.base_experience')
-LEVEL_ATTACK_1=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq '.stats | .[] | .base_stat' | sed "4,7 d" | sed "1,2 d" | sed "s/\n//g")
-LEVEL_DEFENSE_1=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq '.stats | .[] | .base_stat' | sed "2,7 d" | sed "2 d" | sed "2 d" | sed "s/\n//g")
-TYPE=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq '.types | .[] | .type | .name' | sed "s/\"//g" | sed "2 d" | tr a-z A-Z)
-ABILITY=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq '.abilities | .[] | .ability | .name ' | sed 's/\"//g' | sed '2,10 d' | tr a-z A-Z)
+LEVEL_USER=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq '.base_experience')
+LEVEL_ATTACK_USER_1=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq '.stats | .[] | .base_stat' | sed "4,7 d" | sed "1,2 d" | sed "s/\n//g")
+LEVEL_DEFENSE_USER_1=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq '.stats | .[] | .base_stat' | sed "2,7 d" | sed "2 d" | sed "2 d" | sed "s/\n//g")
+TYPE_USER=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq '.types | .[] | .type | .name' | sed "s/\"//g" | sed "2 d" | tr a-z A-Z)
+ABILITY_USER=$(curl -s -L https://pokeapi.co/api/v2/pokemon/$1 | jq '.abilities | .[] | .ability | .name ' | sed 's/\"//g' | sed '2,10 d' | tr a-z A-Z)
 
 #variables PC
 
@@ -40,7 +40,9 @@ if [ "$OPT_2" = "Y" -o "$OPT_2" = "y" -o "$OPT_2" = "" ]; then
     sleep 1
     echo "record..."
     mkdir -p scripts/pokedesk
+    echo "{\"NAME\": \"$POKE_USER\", \"POKEDESK\": \"$NUMBER\", \"LEVEL\": \"$LEVEL_USER\", \"ATTACK\": \"$LEVEL_ATTACK_USER_1\", \"DEFENSE\": \"$LEVEL_DEFENSE_USER_1\",\"TYPE\": \"$TYPE_USER\", \"ABILITY\": \"$ABILITY_USER\" }" > scripts/pokedesk/pokedesk.json
     echo "{\"NAME\": \"$POKE_PC\", \"POKEDESK\": \"$NUM\", \"LEVEL\": \"$LEVEL\", \"ATTACK\": \"$LEVEL_ATTACK_1\", \"DEFENSE\": \"$LEVEL_DEFENSE_1\",\"TYPE\": \"$TYPE\", \"ABILITY\": \"$ABILITY\" }" >> scripts/pokedesk/pokedesk.json
+    echo "[$NUMBER] - $POKE_USER" > scripts/pokedesk/pokedesk_search.txt
     echo "[$NUM] - $POKE_PC" >> scripts/pokedesk/pokedesk_search.txt
     echo "$NUMBER $NAME_USER $NUM" > scripts/game/save.log
     sleep 1
