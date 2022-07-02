@@ -29,5 +29,3 @@ sleep 1
 echo " #######  ##   ##  #####              #####   ##   ##  ### ###  ####### ";
 echo ""
 
-rm -R /home/bates/Documents/repositorio/shell/pokemon/scripts/pokedesk 2> /dev/null > /dev/null
-rm /home/bates/Documents/repositorio/shell/pokemon/scripts/game/save.log 2> /dev/null > /dev/null 

@@ -52,7 +52,7 @@ if [ "$OPT" -eq 1 ]; then
         echo "$POKE_USER"
         sleep 2
         sh scripts/game/record.sh $NUMBER $NAME_USER $NUM
-    elif [ "$LEVEL_ATTACK_1" -lt "$LEVEL_DEFENSE_PC" ]; then
+    elif [ "$LEVEL_DEFENSE_1" -gt "$LEVEL_ATTACK_PC" ]; then
         sleep 1
         echo "The $POKE_PC It has a defense of... $LEVEL_DEFENSE_PC"
         sleep 1

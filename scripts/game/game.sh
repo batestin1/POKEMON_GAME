@@ -18,6 +18,8 @@ sudo apt-get install curl  > /dev/null 2> /dev/null
 sudo apt-get install jq > /dev/null 2> /dev/null
 
 #game
+rm -R /home/bates/Documents/repositorio/shell/pokemon/scripts/pokedesk 2> /dev/null > /dev/null
+rm /home/bates/Documents/repositorio/shell/pokemon/scripts/game/save.log 2> /dev/null > /dev/null 
 
 clear
 echo "###########################################################################################################################"
