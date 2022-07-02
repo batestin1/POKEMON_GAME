@@ -43,7 +43,7 @@ if [ "$OPT" = "B" -o "$OPT" = "b" -o "$OPT" = "" ]; then
     echo "#                                                                                                                 #"
     echo "#=================================================================================================================#"
     read -p "" CHOISE
-    if [ "$CHOISE" -eq 1 -o "$CHOISE" -eq "" ]; then
+    if [ "$CHOISE" -eq 1 ]; then
         sh  scripts/game/game.sh
     elif [ "$CHOISE" -eq 2 ]; then
         sh scripts/continue.sh
