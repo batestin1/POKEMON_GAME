@@ -46,6 +46,8 @@ else
 fi
 
 sleep 3
+echo "                                  Welcome                                                    "
+sleep 1
 
 clear
 sleep 1

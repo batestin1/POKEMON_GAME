@@ -46,10 +46,9 @@ if [ "$OPT" -eq 1 ]; then
         sleep 1
         echo "The $POKE_USER It has a attack of... $LEVEL_ATTACK_1"
         sleep 1
-        FIRST_DAMAGE=$(expr "$LEVEL_ATTACK_1" - "$LEVEL_DEFENSE_PC" )
-        DAMAGE=$(expr "$LEVEL_PC" - "$FIRST_DAMAGE")
+        DAMAGE=$(expr "$LEVEL_PC" - "$LEVEL_ATTACK_1")
         echo "your damage on $POKE_PC was... $DAMAGE hp!"
-        if [ "$DAMAGE" -le 0 ]; then
+        if [ $DAMAGE -lt 50 ]; then
             echo "So, the win is..."
             sleep 1
             echo "..."
@@ -71,10 +70,9 @@ elif [ "$OPT" -eq 2 ]; then
     sleep 1
     echo "The $POKE_USER it has a defense of... $LEVEL_DEFENSE_1"
     sleep 1
-    FIRST_DAMAGE=$(expr "$LEVEL_DEFENSE_1" - "$LEVEL_ATTACK_PC" )
-    DAMAGE=$(expr "$LEVEL_PC" - "$FIRST_DAMAGE")
+    DAMAGE=$(expr "$LEVEL_PC" - "$LEVEL_DEFENSE_1")
     echo "your damage on $POKE_PC was... $DAMAGE hp!"
-    if [ "$DAMAGE" -le 0 ]; then
+    if [ $DAMAGE -lt 50 ]; then
             echo "So, the win is..."
             sleep 1
             echo "..."
