@@ -15,7 +15,7 @@
 clear
 echo "#========================================== About the Game =======================================================#"
 echo "# Developer: MAYCON CYPRIANO                                                                                      #"
-echo "# Version: 2.0.0                                                                                                  #"
+echo "# Version: 3.0.0                                                                                                  #"
 echo "# Creation Dater: $(date +%D)                                                                                        #"
 echo "# Language used: SHELL SCRIPT                                                                                     #"
 echo "# Libraries required: CURL | JQ                                                                                   #"
