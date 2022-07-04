@@ -33,11 +33,21 @@ elif [ $(uname) = "Darwin" ]; then
 else
     echo "#####################################################################################"
     sleep 1
-    echo "YOUR OPERATING SYSTEM IS NOT COMPATIBLE WITH THIS GAME!"
+    echo "Watch out!"
+    sleep 1
+    echo "This game requires certain packages that your operating system may not have at the moment."
+    sleep 1
+    echo "Are they:"
+    sleep 1
+    echo "CURL | SHUF | JQ"
+    sleep 1
+    echo "Install at your own care"
     echo "#####################################################################################"
 fi
 
+sleep 3
 
+clear
 sleep 1
 echo " ######    #####   ### ###  #######  ##   ##   #####   ##   ##           ##   ##   #####   ######   ####     ##### ";
 sleep 1
