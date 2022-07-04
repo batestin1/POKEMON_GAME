@@ -12,6 +12,32 @@
 
 #variables on USER
 clear
+if [ $(uname) = "Linux" ]; then
+
+    sudo apt-get update -y > /dev/null 2> /dev/null && sudo apt-get upgrade -y > /dev/null 2> /dev/null
+    sudo apt-get install curl  > /dev/null 2> /dev/null
+
+    sudo apt-get install jq > /dev/null 2> /dev/null
+
+    #game
+    rm -R /home/bates/Documents/repositorio/shell/pokemon/scripts/pokedesk 2> /dev/null > /dev/null
+    rm /home/bates/Documents/repositorio/shell/pokemon/scripts/game/save.log 2> /dev/null > /dev/null
+elif [ $(uname) = "Darwin" ]; then
+    sudo apt-get update -y > /dev/null 2> /dev/null && sudo apt-get upgrade -y > /dev/null 2> /dev/null
+    /usr/bin/ruby -e $(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install) > /dev/null 2> /dev/null && sudo apt-get upgrade -y > /dev/null 2> /dev/null
+    brew install jq > /dev/null 2> /dev/null && sudo apt-get upgrade -y > /dev/null 2> /dev/null
+    brew install coreutil > /dev/null 2> /dev/null && sudo apt-get upgrade -y > /dev/null 2> /dev/null
+    #game
+    rm -R /home/bates/Documents/repositorio/shell/pokemon/scripts/pokedesk 2> /dev/null > /dev/null
+    rm /home/bates/Documents/repositorio/shell/pokemon/scripts/game/save.log 2> /dev/null > /dev/null
+else
+    echo "#####################################################################################"
+    sleep 1
+    echo "YOUR OPERATING SYSTEM IS NOT COMPATIBLE WITH THIS GAME!"
+    echo "#####################################################################################"
+fi
+
+
 sleep 1
 echo " ######    #####   ### ###  #######  ##   ##   #####   ##   ##           ##   ##   #####   ######   ####     ##### ";
 sleep 1
